@@ -118,6 +118,7 @@ public class LoginController implements Initializable {
 
     @FXML
     public void exitBtn(MouseEvent e) {
+        /* exit */
         Platform.exit();
     }
 
