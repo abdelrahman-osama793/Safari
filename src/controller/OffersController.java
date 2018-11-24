@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,36 +31,23 @@ import javafx.stage.Stage;
  */
 public class OffersController implements Initializable {
 
-    @FXML
-    private ImageView img_mainLogo;
-    @FXML
-    private ImageView img_back;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        File mainLogo = new File("images/mainLogo.png");
-        Image mainImage = new Image(mainLogo.toURI().toString());
-        img_mainLogo.setImage(mainImage);
-        
-        File backLogo = new File("images/back.png");
-        Image backImage = new Image(backLogo.toURI().toString());
-        img_back.setImage(backImage);
-    }    
+
+    }
 
     @FXML
-    private void img_back_action(MouseEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/Home.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void  exitBtn(MouseEvent e){
+        Platform.exit();
     }
-    
+
+    @FXML
+    public void  backBtn(MouseEvent e){
+        HomeController.offerStage.close();
+        LoginController.homeStage.show();
+    }
+
 }

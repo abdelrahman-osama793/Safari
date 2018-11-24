@@ -14,11 +14,11 @@ public class Main extends Application {
     private double xOffset;
     private double yOffset;
     static Stage loginStage;
+
     @Override
     public void start(Stage primaryStage) {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("../View/login.fxml"));
-
             parent.setOnMousePressed(event -> {
                 xOffset = primaryStage.getX() - event.getScreenX();
                 yOffset = primaryStage.getY() - event.getScreenY();

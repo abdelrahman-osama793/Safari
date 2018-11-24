@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -31,9 +34,10 @@ import javafx.stage.Stage;
  * @author shima
  */
 public class SpecialOrderController implements Initializable {
+    Stage visaStage= new Stage();
+    private double xOffset;
+    private double yOffset;
 
-    @FXML
-    private ImageView img_mainLogo;
     @FXML
     private ChoiceBox<?> choiceList_days;
     @FXML
@@ -44,21 +48,30 @@ public class SpecialOrderController implements Initializable {
     private ChoiceBox<?> choiceList_people;
     @FXML
     private Button bt_submit;
-    @FXML
-    private ImageView img_back;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        File mainLogo = new File("images/mainLogo.png");
-        Image mainImage = new Image(mainLogo.toURI().toString());
-        img_mainLogo.setImage(mainImage);
-        
-        File backLogo = new File("images/back.png");
-        Image backImage = new Image(backLogo.toURI().toString());
-        img_back.setImage(backImage);
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("../View/EnterVisa.fxml"));
+            Scene scene = new Scene(parent, 1366, 728);
+            parent.setOnMousePressed(ev -> {
+                xOffset = visaStage.getX() - ev.getScreenX();
+                yOffset = visaStage.getY() - ev.getScreenY();
+            });
+            parent.setOnMouseDragged(ev -> {
+                visaStage.setX(ev.getScreenX() + xOffset);
+                visaStage.setY(ev.getScreenY() + yOffset);
+            });
+            visaStage.setScene(scene);
+            visaStage.setTitle("Payment");
+            visaStage.getIcons().add(new Image("images/logo.png"));
+            visaStage.initStyle(StageStyle.UNDECORATED);
+        } catch (Exception e) {
+
+        }
     }    
 
     @FXML
@@ -79,28 +92,20 @@ public class SpecialOrderController implements Initializable {
 
     @FXML
     private void bt_submit_action(ActionEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/EnterVisa.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        visaStage.show();
+        HomeController.specialofferStage.close();
     }
 
     @FXML
-    private void img_back_action(MouseEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/Home.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void  exitBtn(MouseEvent e){
+        Platform.exit();
     }
-    
+
+    @FXML
+    public void  backBtn(MouseEvent e){
+        HomeController.offerStage.close();
+        LoginController.homeStage.show();
+    }
 }
+    
+

@@ -36,8 +36,10 @@ import java.util.logging.Logger;
  */
 public class LoginController implements Initializable {
     static Stage homeStage = new Stage();
+    static Stage signupStage = new Stage();
     private double xOffset;
     private double yOffset;
+
     @FXML
     private ImageView img_mainLogo;
     @FXML
@@ -62,17 +64,6 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*File mainLogo = new File("images/mainLogo.png");
-        Image mainImage = new Image(mainLogo.toURI().toString());
-        img_mainLogo.setImage(mainImage);
-        
-        File paswdLogo = new File("images/passwordIcon.png");
-        Image paswdImage = new Image(paswdLogo.toURI().toString());
-        img_password.setImage(paswdImage);
-        
-        File userLogo = new File("images/userIcon.png");
-        Image userImage = new Image(userLogo.toURI().toString());
-        img_user.setImage(userImage);*/
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("../View/home.fxml"));
             Scene scene = new Scene(parent, 1366, 728);
@@ -85,17 +76,35 @@ public class LoginController implements Initializable {
                 homeStage.setY(ev.getScreenY() + yOffset);
             });
             homeStage.setScene(scene);
-            homeStage.setTitle("login");
+            homeStage.setTitle("Home");
             homeStage.getIcons().add(new Image("images/logo.png"));
             homeStage.initStyle(StageStyle.UNDECORATED);
         } catch (Exception e) {
+
+        }
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("../View/register.fxml"));
+            Scene scene = new Scene(parent,1366,728);
+            parent.setOnMousePressed(ev -> {
+                xOffset = signupStage.getX() - ev.getScreenX();
+                yOffset = signupStage.getY() - ev.getScreenY();
+            });
+            parent.setOnMouseDragged(ev -> {
+                signupStage.setX(ev.getScreenX() + xOffset);
+                signupStage.setY(ev.getScreenY() + yOffset);
+            });
+            signupStage.setScene(scene);
+            signupStage.setTitle("Signup");
+            signupStage.getIcons().add(new Image("images/logo.png"));
+            signupStage.initStyle(StageStyle.UNDECORATED);
+        }catch (Exception e ){
 
         }
 
     }
 
     @FXML
-    public void tf_userNmae_action(ActionEvent event) {
+    public void tf_userName_action(ActionEvent event) {
     }
 
     @FXML
@@ -122,29 +131,10 @@ public class LoginController implements Initializable {
         Platform.exit();
     }
 
-//    private void bt_signUp_action(ActionEvent event) {
-//        try {
-//            Parent parent = FXMLLoader.load(getClass().getResource("../View/register.fxml"));
-//            Scene scene = new Scene(parent);
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setScene(scene);
-//            stage.show();
-//        } catch (IOException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
     @FXML
     public void lbl_signUp_action(MouseEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/register.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        signupStage.show();
+        Main.loginStage.close();
     }
 
 }

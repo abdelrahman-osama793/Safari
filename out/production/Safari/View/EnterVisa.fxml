@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EnterVisaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EnterVisaController">
    <children>
       <ImageView fx:id="img_mainLogo" fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="../images/mainLogo.png" />
+            <Image url="@../images/mainLogo.png" />
          </image>
       </ImageView>
       <TextField fx:id="tf_visa" layoutX="683.0" layoutY="422.0" onAction="#tf_visa_action" prefHeight="53.0" prefWidth="267.0" promptText="0000 0000 0000 0000" style="-fx-background-color: transparent; -fx-border-color: #DDD; -fx-border-radius: 5;">
@@ -44,19 +44,24 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="14.0" text="SA" textFill="WHITE">
+      <Label layoutX="23.0" layoutY="14.0" text="SA" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="14.0" text="FARI" textFill="#ab9191">
+      <Label layoutX="45.0" layoutY="14.0" text="FARI" textFill="#ab9191">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="img_back" fitHeight="35.0" fitWidth="47.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#img_back_action" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1317.0" layoutY="21.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="../images/back.png" />
+            <Image url="@../images/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1270.0" layoutY="21.0" onMouseClicked="#backBtn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/reply.png" />
          </image>
       </ImageView>
    </children>

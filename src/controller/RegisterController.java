@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +27,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -32,6 +35,9 @@ import javafx.stage.Stage;
  * @author shima
  */
 public class RegisterController implements Initializable {
+    static Stage homeStage1 = new Stage();
+    private double xOffset;
+    private double yOffset;
 
     @FXML
     private TextField tf_fName;
@@ -57,10 +63,25 @@ public class RegisterController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        File mainLogo = new File("images/mainLogo.png");
-        Image mainImage = new Image(mainLogo.toURI().toString());
-        img_mainLogo.setImage(mainImage);
-    }    
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("../View/home.fxml"));
+            Scene scene = new Scene(parent, 1366, 728);
+            parent.setOnMousePressed(ev -> {
+                xOffset = homeStage1.getX() - ev.getScreenX();
+                yOffset = homeStage1.getY() - ev.getScreenY();
+            });
+            parent.setOnMouseDragged(ev -> {
+                homeStage1.setX(ev.getScreenX() + xOffset);
+                homeStage1.setY(ev.getScreenY() + yOffset);
+            });
+            homeStage1.setScene(scene);
+            homeStage1.setTitle("Home");
+            homeStage1.getIcons().add(new Image("images/logo.png"));
+            homeStage1.initStyle(StageStyle.UNDECORATED);
+        } catch (Exception e) {
+
+        }
+    }
 
     @FXML
     private void tf_fName_action(ActionEvent event) {
@@ -82,31 +103,11 @@ public class RegisterController implements Initializable {
     private void tf_phoneNum_action(ActionEvent event) {
     }
 
-
     @FXML
     private void bt_signUp_action(ActionEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/login.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        homeStage1.show();
+        LoginController.signupStage.close();
     }
-//
-//    private void bt_login_action(ActionEvent event) {
-//        try {
-//            Parent parent = FXMLLoader.load(getClass().getResource("../View/login.fxml"));
-//            Scene scene = new Scene(parent);
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setScene(scene);
-//            stage.show();
-//        } catch (IOException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 
     @FXML
     private void tf_confirmPaswd_action(ActionEvent event) {
@@ -114,15 +115,18 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void lbl_login_action(MouseEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/login.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoginController.signupStage.close();
+        Main.loginStage.show();
+    }
+
+    public void  exitBtn(MouseEvent e){
+        Platform.exit();
+    }
+
+    @FXML
+    public void  backBtn(MouseEvent e){
+        LoginController.homeStage.close();
+        Main.loginStage.show();
     }
     
 }
