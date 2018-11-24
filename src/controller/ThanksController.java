@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,9 +42,7 @@ public class ThanksController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        File mainLogo = new File("images/mainLogo.png");
-        Image mainImage = new Image(mainLogo.toURI().toString());
-        img_mainLogo.setImage(mainImage);
+
     }    
 
     @FXML
@@ -56,6 +56,15 @@ public class ThanksController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public void exitBtn(MouseEvent e) {
+        /* exit */
+        Platform.exit();
+    }
+
+    public void homeBtn(MouseEvent e) {
+        LoginController.homeStage.show();
+        EnterVisaController.thanksStage.close();
     }
     
 }

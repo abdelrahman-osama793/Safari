@@ -27,6 +27,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -35,23 +36,38 @@ import javafx.stage.Stage;
  */
 public class EnterVisaController implements Initializable {
 
-    @FXML
-    private ImageView img_mainLogo;
-    @FXML
-    private TextField tf_visa;
+    static Stage thanksStage = new Stage();
+    private double xOffset;
+    private double yOffset;
     @FXML
     private Button bt_confirm;
     @FXML
     private Label lbl_price;
-    @FXML
-    private ImageView img_back;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("../View/thanks.fxml"));
+            Scene scene = new Scene(parent, 1366, 728);
+            parent.setOnMousePressed(ev -> {
+                xOffset = thanksStage.getX() - ev.getScreenX();
+                yOffset = thanksStage.getY() - ev.getScreenY();
+            });
+            parent.setOnMouseDragged(ev -> {
+                thanksStage.setX(ev.getScreenX() + xOffset);
+                thanksStage.setY(ev.getScreenY() + yOffset);
+            });
+            thanksStage.setScene(scene);
+            thanksStage.setTitle("Offers");
+            thanksStage.getIcons().add(new Image("images/logo.png"));
+            thanksStage.initStyle(StageStyle.UNDECORATED);
+        } catch (Exception e) {
 
+        }
     }    
 
     @FXML
@@ -60,28 +76,8 @@ public class EnterVisaController implements Initializable {
 
     @FXML
     private void bt_confirm_action(ActionEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/thanks.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void img_back_action(MouseEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../View/SpecialOrder.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        thanksStage.show();
+        SpecialOrderController.visaStage.close();
     }
 
     @FXML
@@ -91,7 +87,7 @@ public class EnterVisaController implements Initializable {
 
     @FXML
     public void  backBtn(MouseEvent e){
-        HomeController.offerStage.close();
+        HomeController.specialofferStage.close();
         LoginController.homeStage.show();
     }
     

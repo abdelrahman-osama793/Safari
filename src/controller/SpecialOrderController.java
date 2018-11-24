@@ -34,7 +34,7 @@ import javafx.stage.StageStyle;
  * @author shima
  */
 public class SpecialOrderController implements Initializable {
-    Stage visaStage= new Stage();
+    static Stage visaStage= new Stage();
     private double xOffset;
     private double yOffset;
 
