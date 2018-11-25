@@ -28,7 +28,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView id="homebtn" fitHeight="32.0" fitWidth="32.0" layoutX="1277.0" layoutY="8.0" onMouseClicked="#homeBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="homebtn" fx:id="homebtn" fitHeight="32.0" fitWidth="32.0" layoutX="1277.0" layoutY="8.0" onMouseClicked="#homeBtn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/house-outline(1).png" />
          </image>
