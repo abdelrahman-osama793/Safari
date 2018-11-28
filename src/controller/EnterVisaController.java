@@ -90,5 +90,9 @@ public class EnterVisaController implements Initializable {
         HomeController.specialofferStage.close();
         LoginController.homeStage.show();
     }
+    public void minBtn(MouseEvent event) {
+        Stage stage = (Stage) SpecialOrderController.visaStage.getScene().getWindow();
+        stage.setIconified(true);
+    }
     
 }

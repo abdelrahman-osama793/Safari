@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -31,16 +33,14 @@ public class Main extends Application {
             Scene scene = new Scene(parent,1366,728);
             primaryStage.setScene(scene);
             primaryStage.setTitle("login");
-            primaryStage.getIcons().add(new Image("images/logo.png"));
+            primaryStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
             loginStage = primaryStage;
         } catch (IOException ex) {
             System.out.println("Error In Load");
         }
-
     }
-
 
     public static void main(String[] args) {
         launch(args);

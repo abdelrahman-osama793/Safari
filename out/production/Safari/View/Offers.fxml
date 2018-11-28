@@ -23,14 +23,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1323.0" layoutY="16.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1325.0" layoutY="14.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete.png" />
+            <Image url="@../images/exit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1276.0" layoutY="16.0" onMouseClicked="#backBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1230.0" layoutY="14.0" onMouseClicked="#backBtn" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/reply.png" />
+            <Image url="@../images/back-left-arrow-square-button-outline.png" />
+         </image>
+      </ImageView>
+      <ImageView id="minBtn" fitHeight="27.0" fitWidth="27.0" layoutX="1278.0" layoutY="14.0" onMouseClicked="#minBtn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/minimize%20(1).png" />
          </image>
       </ImageView>
    </children>

@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
             });
             homeStage.setScene(scene);
             homeStage.setTitle("Home");
-            homeStage.getIcons().add(new Image("images/logo.png"));
+            homeStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             homeStage.initStyle(StageStyle.UNDECORATED);
         } catch (Exception e) {
 
@@ -95,7 +95,7 @@ public class LoginController implements Initializable {
             });
             signupStage.setScene(scene);
             signupStage.setTitle("Signup");
-            signupStage.getIcons().add(new Image("images/logo.png"));
+            signupStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             signupStage.initStyle(StageStyle.UNDECORATED);
         }catch (Exception e ){
 
@@ -137,4 +137,8 @@ public class LoginController implements Initializable {
         Main.loginStage.close();
     }
 
+    public void minBtn(MouseEvent event) {
+        Stage stage = (Stage) Main.loginStage.getScene().getWindow();
+        stage.setIconified(true);
+    }
 }

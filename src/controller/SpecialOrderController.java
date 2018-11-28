@@ -67,7 +67,7 @@ public class SpecialOrderController implements Initializable {
             });
             visaStage.setScene(scene);
             visaStage.setTitle("Payment");
-            visaStage.getIcons().add(new Image("images/logo.png"));
+            visaStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             visaStage.initStyle(StageStyle.UNDECORATED);
         } catch (Exception e) {
 
@@ -105,6 +105,10 @@ public class SpecialOrderController implements Initializable {
     public void  backBtn(MouseEvent e){
         HomeController.offerStage.close();
         LoginController.homeStage.show();
+    }
+    public void minBtn(MouseEvent event) {
+        Stage stage = (Stage)HomeController.specialofferStage.getScene().getWindow();
+        stage.setIconified(true);
     }
 }
     

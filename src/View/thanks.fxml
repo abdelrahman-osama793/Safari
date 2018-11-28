@@ -28,14 +28,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView id="homebtn" fx:id="homebtn" fitHeight="32.0" fitWidth="32.0" layoutX="1277.0" layoutY="8.0" onMouseClicked="#homeBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="homebtn" fx:id="homebtn" fitHeight="32.0" fitWidth="32.0" layoutX="1221.0" layoutY="7.0" onMouseClicked="#homeBtn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/house-outline(1).png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1329.0" layoutY="12.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1326.0" layoutY="12.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete.png" />
+            <Image url="@../images/exit.png" />
+         </image>
+      </ImageView>
+      <ImageView id="minBtn" fitHeight="27.0" fitWidth="27.0" layoutX="1276.0" layoutY="13.0" onMouseClicked="#minBtn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/minimize%20(1).png" />
          </image>
       </ImageView>
    </children>

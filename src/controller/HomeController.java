@@ -67,7 +67,7 @@ public class HomeController implements Initializable {
             });
             offerStage.setScene(scene);
             offerStage.setTitle("Offers");
-            offerStage.getIcons().add(new Image("images/logo.png"));
+            offerStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             offerStage.initStyle(StageStyle.UNDECORATED);
         } catch (Exception e) {
 
@@ -86,7 +86,7 @@ public class HomeController implements Initializable {
             });
             specialofferStage.setScene(scene);
             specialofferStage.setTitle("Special Orders");
-            specialofferStage.getIcons().add(new Image("images/logo.png"));
+            specialofferStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             specialofferStage.initStyle(StageStyle.UNDECORATED);
         } catch (Exception e) {
 
@@ -105,7 +105,7 @@ public class HomeController implements Initializable {
             });
             contactusStage.setScene(scene);
             contactusStage.setTitle("Contact US");
-            contactusStage.getIcons().add(new Image("images/logo.png"));
+            contactusStage.getIcons().add(new Image("images/maps-and-flags (2).png"));
             contactusStage.initStyle(StageStyle.UNDECORATED);
         } catch (Exception e) {
 
@@ -140,6 +140,10 @@ public class HomeController implements Initializable {
     public void  backBtn(MouseEvent e){
         LoginController.homeStage.close();
         Main.loginStage.show();
+    }
+    public void minBtn(MouseEvent event) {
+        Stage stage = (Stage) LoginController.homeStage.getScene().getWindow();
+        stage.setIconified(true);
     }
     
 }

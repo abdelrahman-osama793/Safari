@@ -13,12 +13,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -66,5 +68,8 @@ public class ThanksController implements Initializable {
         LoginController.homeStage.show();
         EnterVisaController.thanksStage.close();
     }
-    
+    public void minBtn(MouseEvent event) {
+        Stage stage = (Stage)EnterVisaController.thanksStage.getScene().getWindow();
+        stage.setIconified(true);
+    }
 }

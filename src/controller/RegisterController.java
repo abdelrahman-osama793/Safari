@@ -128,5 +128,8 @@ public class RegisterController implements Initializable {
         LoginController.homeStage.close();
         Main.loginStage.show();
     }
-    
+    public void minBtn(MouseEvent event) {
+        Stage stage = (Stage)LoginController.signupStage.getScene().getWindow();
+        stage.setIconified(true);
+    }
 }
