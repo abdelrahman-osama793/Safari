@@ -19,7 +19,7 @@
             <Image url="@../images/mainLogo.png" />
          </image>
       </ImageView>
-      <Pane layoutX="392.0" layoutY="305.0" prefHeight="364.0" prefWidth="571.0" style="-fx-border-color: #DDD; -fx-border-radius: 30;">
+      <Pane layoutX="392.0" layoutY="305.0" prefHeight="364.0" prefWidth="571.0" style="-fx-border-color: #DDD; -fx-border-radius: 50;">
          <children>
             <ImageView fx:id="img_user" fitHeight="39.0" fitWidth="42.0" layoutX="128.0" layoutY="48.0">
                <image>

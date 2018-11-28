@@ -87,8 +87,8 @@ public class EnterVisaController implements Initializable {
 
     @FXML
     public void  backBtn(MouseEvent e){
-        HomeController.specialofferStage.close();
-        LoginController.homeStage.show();
+        SpecialOrderController.visaStage.close();
+        HomeController.specialofferStage.show();
     }
     public void minBtn(MouseEvent event) {
         Stage stage = (Stage) SpecialOrderController.visaStage.getScene().getWindow();

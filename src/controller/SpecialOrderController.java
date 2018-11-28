@@ -72,22 +72,25 @@ public class SpecialOrderController implements Initializable {
         } catch (Exception e) {
 
         }
-    }    
-
-    @FXML
-    private void choiceList_days_action(MouseEvent event) {
     }
 
     @FXML
-    private void choiceList_transport_action(MouseEvent event) {
+    private void combobox_place_action(MouseEvent event) {
+    }
+    @FXML
+    private void combobox_days_action(MouseEvent event) {
     }
 
     @FXML
-    private void choiceList_stars_action(MouseEvent event) {
+    private void combobox_transport_action(MouseEvent event) {
     }
 
     @FXML
-    private void choiceList_people_action(MouseEvent event) {
+    private void combobox_stars_action(MouseEvent event) {
+    }
+
+    @FXML
+    private void combobox_people_action(MouseEvent event) {
     }
 
     @FXML
@@ -98,15 +101,18 @@ public class SpecialOrderController implements Initializable {
 
     @FXML
     public void  exitBtn(MouseEvent e){
+        //exit the current platform
         Platform.exit();
     }
 
     @FXML
     public void  backBtn(MouseEvent e){
+        //back to the previous page
         HomeController.offerStage.close();
         LoginController.homeStage.show();
     }
     public void minBtn(MouseEvent event) {
+        //minimize the page
         Stage stage = (Stage)HomeController.specialofferStage.getScene().getWindow();
         stage.setIconified(true);
     }

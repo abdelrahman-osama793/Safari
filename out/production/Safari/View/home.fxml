@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -44,15 +45,23 @@
             <Image url="@../images/minimize%20(1).png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="bt_offers" buttonType="RAISED" layoutX="580.0" layoutY="352.0" onAction="#bt_offers_action" prefHeight="71.0" prefWidth="206.0" ripplerFill="#08a966" style="-fx-border-radius: 20; -fx-background-radius: 19; -fx-border-color: white;" styleClass="mybtn" stylesheets="@../buttons.css" text="Offers" textFill="WHITE">
+      <JFXButton fx:id="bt_offers" buttonType="RAISED" layoutX="580.0" layoutY="352.0" onAction="#bt_offers_action" prefHeight="71.0" prefWidth="206.0" ripplerFill="#08a966" styleClass="mybtn" text="Offers" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
+         <stylesheets>
+            <URL value="@../buttons.css" />
+            <URL value="@../Style%20of%20everything.css" />
+         </stylesheets>
       </JFXButton>
-      <JFXButton fx:id="bt_orders" buttonType="RAISED" layoutX="579.0" layoutY="454.0" onAction="#bt_orders_action" prefHeight="71.0" prefWidth="206.0" ripplerFill="#08a966" style="-fx-border-radius: 20; -fx-background-radius: 19; -fx-border-color: white;" styleClass="mybtn" stylesheets="@../buttons.css" text="Make an Order" textFill="WHITE">
+      <JFXButton fx:id="bt_orders" buttonType="RAISED" layoutX="579.0" layoutY="454.0" onAction="#bt_orders_action" prefHeight="71.0" prefWidth="206.0" ripplerFill="#08a966" styleClass="mybtn" text="Make an Order" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
+         <stylesheets>
+            <URL value="@../buttons.css" />
+            <URL value="@../Style%20of%20everything.css" />
+         </stylesheets>
       </JFXButton>
    </children>
 </AnchorPane>
